@@ -1,10 +1,9 @@
 package com.soft.demo6.pojo;
+//没用
 
 public class AuthenticationBean {
     private String userName;
     private String password;
-
-    private
 
     public AuthenticationBean(String username, String password) {
         this.userName = username;

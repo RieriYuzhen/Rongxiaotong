@@ -10,7 +10,7 @@ import java.util.UUID;
 
 import static java.lang.System.currentTimeMillis;
 
-//Jwt工具类
+//Jwt工具类 用不了
 
 public class JwtTokenUtil {
     private static long time = 1000*15;

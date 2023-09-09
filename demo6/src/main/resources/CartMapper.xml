@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 定义命名空间 -->
+<mapper namespace="com.soft.demo6.mapper.CartMapper">
+
+    <resultMap type="com.soft.demo6.pojo.TbShoppingcart" id="CartEntityMap">
+        <id property="shoppingId" column="shopping_id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="count" column="count"/>
+        <result property="ownName" column="own_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="orderId">
+        insert into tb_shoppingcart (shopping_id,order_id,count,own_name, create_time, update_time)
+        values (#{shoppingId}, #{orderId}, #{count}, #{ownName}, #{createdTime},#{updateTime})
+    </insert>
+
+
+<!-- 定义查询购物车商品的方法 -->
+    <update id="updateNumByCid">
+        update tb_shoppingcart
+        set
+            count=#{count}, own_name=#{ownName}, update_time=#{updateTime}
+        where
+            shopping_id=#{shoppingId}
+    </update>
+
+    <select id="findByUidAndPid" resultMap="CartEntityMap">
+        select * from tb_shoppingcart where own_name=#{ownName} and order_id=#{orderId}
+    </select>
+
+
+    <!-- 定义删除购物车商品的方法 -->
+<!--<delete id="deleteByPrimaryKey" parameterType="Integer">-->
+
+<!--</delete>-->
+
+<!--&lt;!&ndash; 定义更新购物车商品的方法 &ndash;&gt;-->
+<!--<update id="updateByPrimaryKeySelective" parameterType="com.soft.demo6.pojo.TbShoppingcart">-->
+
+<!--</update>-->
+
+<!-- 定义查询结果的映射 -->
+<!--<resultMap id="ShoppingModelMap" type="com.example.demo.model.ShoppingModel">-->
+<!--    <id property="shoppingcartId" column="shoppingcart_id" />-->
+<!--    <result property="orderId" column="order_id" />-->
+<!--    <result property="ownName" column="own_name" />-->
+<!--    <result property="count" column="count" />-->
+<!--    <result property="title" column="title" />-->
+<!--    <result property="description" column="description" />-->
+<!--    <result property="price" column="price" />-->
+<!--    <result property="imageUrl" column="image_url" />-->
+<!--</resultMap>-->
+
+</mapper>

@@ -1,11 +1,14 @@
 package com.soft.demo6.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
-
+@Data
 public class TbUser implements Serializable {
 
+  @TableId
   private String userName;
   private String password;
   private String nickName;
@@ -19,15 +22,15 @@ public class TbUser implements Serializable {
   private long credit;
   private String avatar;
   private String realName;
-  private String token;
+//  private String token;
 
   public String getUserName() {
     return userName;
   }
 
-  public String getToken(){return token;}
-
-  public void setToken(String token){this.token = token;}
+//  public String getToken(){return token;}
+//
+//  public void setToken(String token){this.token = token;}
 
   public void setUserName(String userName) {
     this.userName = userName;
@@ -157,7 +160,7 @@ public class TbUser implements Serializable {
             ", credit=" + credit +
             ", avatar='" + avatar + '\'' +
             ", realName='" + realName + '\'' +
-            ", token = '" + token + '\''+
+//            ", token = '" + token + '\''+
             '}';
   }
 }
